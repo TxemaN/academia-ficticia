@@ -1,0 +1,32 @@
+
+<%- include('templates/header.ejs', {title:"Profesores"}) -%>
+<%- include('templates/nav.ejs') -%>
+
+
+
+        <main>
+            <h1><%= titulo%></h1>
+            <%if(profesores.length>1) { %>
+                <% profesores.forEach(element=> { %>
+                    <article>
+                        <h2>
+                            <%=element.nombre%>
+                        </h2>
+                        <p>
+                            <%=element.fechaNacimiento%>
+                        </p>
+                        <p>
+                            <%=element.especialidad%>
+                        </p>
+                        
+                        <figure class="fotos profes">
+                            <img src=<%=element.imagen.src%> alt="<%=element.imagen.alt%>">
+                        </figure>
+                    </article>
+                    <%})%>
+
+                        <% }%>
+               
+        </main>
+
+        <%- include('templates/footer.ejs') -%>
