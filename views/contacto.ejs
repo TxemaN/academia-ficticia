@@ -1,0 +1,22 @@
+<%- include('templates/header.ejs', {title:"Contacto"}) -%>
+<%- include('templates/nav.ejs') -%>
+
+
+
+
+        <main>
+            <h1><%=titulo %> </h1>
+            <ul>
+                <li><%=telefono %></li>
+                <li><%=email %></li>
+            </ul>
+
+            <div class="fotos">
+
+                <figure>
+                   <img src= <%=imagen.src %> alt=<%=imagen.alt %>>
+                    <figcaption> <%=imagen.pieFoto %></figcaption>
+                </figure>
+            </div>
+        </main>
+        <%- include('templates/footer.ejs') -%>

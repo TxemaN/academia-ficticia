@@ -1,0 +1,38 @@
+<%- include('templates/header.ejs', {title:"Cursos"}) -%>
+    <%- include('templates/nav.ejs') -%>
+
+
+
+        <main>
+            <h1>
+                <%= titulo%>
+            </h1>
+            <%if(cursos.length>0) { %>
+                <% cursos.forEach(element=> { %>
+                    <article>
+                        <h2>
+                            <%=element.nombre%>
+                        </h2>
+                        <p>
+                            <%=element.descripcion%>
+                        </p>
+                        <p>
+                            <%=element.fecha%>
+                        </p>
+                        <p>
+                            <%=element.precio%>
+                        </p>
+                        <figure class="fotos">
+                            <img src=<%=element.imagen.src%> alt="<%=element.imagen.alt%>">
+                        </figure>
+                    </article>
+                    <%})%>
+
+                        <% }%>
+
+
+
+
+
+        </main>
+        <%- include('templates/footer.ejs') -%>
