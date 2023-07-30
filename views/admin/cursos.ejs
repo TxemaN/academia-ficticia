@@ -1,0 +1,41 @@
+
+
+<%- include('templates/header.ejs') -%>
+
+
+    <main>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Curso</th>
+                    <th>Descripción</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(cursos.length>0) { %>
+                    <% cursos.forEach(element=> { %>
+                        <tr>
+                            <th> <%= cursos.nombre %></th>
+                            <th> <%= cursos.descripcion %></th>
+                            <th> <%= cursos.fecha%></th>
+                            <th> <%= cursos.precio%></th>
+                            <th> <a href="/cursos/editar/?id=cursos.id=><%= cursos.nombre%>">EDITAR</a></th>
+                            <th> <a href="/cursos/borrar/?id=cursos.id=><%= cursos.nombre%>">BORRAR</a></th>
+                        </tr>
+                        <% }) %>
+                            <% } %>
+
+
+
+            </tbody>
+
+        </table>
+
+
+    </main>
+
+    <%- include('templates/footer.ejs') -%>

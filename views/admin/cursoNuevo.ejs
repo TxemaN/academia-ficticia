@@ -1,0 +1,17 @@
+<%- include('templates/header.ejs', {title:"Cursos"}) -%>
+
+    <main>
+        <h1>PANEL CREAR CURSOS</h1>
+
+        <form action="/admin/curso/nuevo" method="post">
+            <input type="text" placeholder="Nombre curso completo" name="nombre">
+            <textarea name="descripcion" id="" cols="30" rows="10" placeholder="descripción"></textarea>
+            <input type="text" placeholder="fecha" name="fecha">
+            <input type="text" placeholder="precio" name="precio">
+            <button type="submit">Añadir curso</button>
+
+
+        </form>
+    </main>
+
+    <%- include('templates/footer.ejs') -%>
