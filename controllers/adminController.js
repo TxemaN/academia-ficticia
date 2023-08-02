@@ -1,11 +1,24 @@
 
 
-
 //MOSTRAR TABLA CURSOS
-const getCursos =  (req, res) => {
-    
-    res.render("admin/cursos")
+const getCursos = async (req, res) => {
 
+    try {
+        //const cursos=await Curso.find()
+        const resp = await fetch("http://localhost:3000/api/v1/cursos")
+        if (resp.ok) {
+
+            const cursos = await resp.json()
+            console.log(cursos)
+            res.render("admin/cursos", {
+
+                título: "listado de cursos",
+                cursos: cursos.data,
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
 
 }
 
@@ -20,8 +33,8 @@ const vistaCrearCurso = (req, res) => {
 
 //ENVIAR CURSO A LA API
 const cursoNuevo = async (req, res) => {
-    const {nombre, descripcion} = req.body
-    
+    const { nombre, descripcion } = req.body
+
     console.log(nombre, descripcion)
 
     const body = { nombre, descripcion }
@@ -49,8 +62,8 @@ const vistaEditarCurso = (req, res) => {
 //ENVIAR CURSO EDITADO A LA API
 
 const cursoEditado = async (req, res) => {
-    const {nombre, descripcion, id} = req.body
-    
+    const { nombre, descripcion, id } = req.body
+
     console.log(nombre, descripcion, id)
 
     const body = { nombre, descripcion, id }
